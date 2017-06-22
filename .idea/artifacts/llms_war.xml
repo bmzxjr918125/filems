@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="llms:war">
+    <output-path>C:/llms/out/artifacts/llms_war</output-path>
+    <root id="archive" name="llms_war.war">
+      <element id="artifact" artifact-name="llms:war exploded" />
+    </root>
+  </artifact>
+</component>

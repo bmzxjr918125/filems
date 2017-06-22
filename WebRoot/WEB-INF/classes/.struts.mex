@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <webResource name="error.jsp" path="/error/error.jsp" location="127,220" size="150,55" />
+  <include file="struts/Index/Index_content.xml" location="0,0" size="0,0" />
+  <include file="struts/Information/information.xml" location="0,0" size="0,0" />
+  <include file="struts/Trends/trends.xml" location="0,0" size="0,0" />
+  <include file="struts/Activities/Activities.xml" location="0,0" size="0,0" />
+  <include file="Admin_Menu.xml" location="0,0" size="0,0" />
+  <include file="Admin_User.xml" location="0,0" size="0,0" />
+  <include file="Admin_Activitie.xml" location="0,0" size="0,0" />
+  <include file="Admin_Trends.xml" location="0,0" size="0,0" />
+</Struts2Diagram>
+

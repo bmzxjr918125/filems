@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://cxf.apache.org/jaxws
+           http://cxf.apache.org/schemas/jaxws.xsd">
+    <!-- 打开annotation的配置 -->
+    <context:annotation-config/>
+    <!-- 在那些包中寻找要注入的类 -->
+    <context:component-scan base-package="com.filems.*"/>
+    <!-- 创建JDBC数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://114.55.53.48:3306/tmms?useUnicode=true&amp;autoReconnect=true"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root3306"></property>
+
+        <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 5 -->
+        <property name="acquireIncrement" value="5"></property>
+        <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+        <property name="acquireRetryAttempts" value="40"></property>
+        <!--两次连接中间隔时间，单位毫秒。Default: 1000 -->
+        <property name="acquireRetryDelay" value="1000"></property>
+        <!--连接关闭时默认将所有未提交的操作回滚。Default: false -->
+        <property name="autoCommitOnClose" value="false"></property>
+        <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+        <property name="idleConnectionTestPeriod" value="60"></property>
+        <!--初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+        <property name="initialPoolSize" value="15"></property>
+        <!--连接池中保留的最大连接数。Default: 15 -->
+        <property name="maxPoolSize" value="150"></property>
+        <!--连接池中保留的最小连接数。Default: 3 -->
+        <property name="minPoolSize" value="10"></property>
+
+        <!--<property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>-->
+    </bean>
+
+    <!--创建hibernate的sessionfactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.filems.entity</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- 定义使用mysql的方言  org.hibernate.dialect.MySQLDialect-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <!-- 设置Hibernate是否在控制台输出SQL语句，开发调试阶段通常设为true -->
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- 设置Hibernate一个提交批次中的最大SQL语句数 -->
+                <prop key="hibernate.jdbc.batch_size">50</prop>
+                <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+                <!-- 是否在控制台格式化sql语句 -->
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 自动创建修改表 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+          </props>
+        </property>
+    </bean>
+    <!-- 开启HibernateTemplate，并且为其注入SessionFactory
+    使用HibernateTemplate不太方便的就是要获取session得通过getSessionFactory()方法获取 -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+
+
+    <!-- 配置Spring的事物处理 -->
+    <!-- 1，创建事物管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 2,配置aop,Spring来通过aop来进行事物管理的   -->
+    <aop:config>
+        <!--整体业务层添加事务管理-->
+        <aop:pointcut id="allMethod" expression="execution(* com.filems.bizservice.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allMethod"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 对所有方法都加上事物 -->
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED" />
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+   
+</beans>

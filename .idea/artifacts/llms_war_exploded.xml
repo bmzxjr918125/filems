@@ -1,0 +1,111 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="llms:war exploded">
+    <output-path>C:/llms/out/artifacts/llms_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="llms" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="ant-1.6.5.jar" module-name="llms" />
+          <element id="library" level="module" name="aopalliance-1.0.jar" module-name="llms" />
+          <element id="library" level="module" name="asm-2.2.3.jar" module-name="llms" />
+          <element id="library" level="module" name="aspectjrt.jar" module-name="llms" />
+          <element id="library" level="module" name="aspectjweaver.jar" module-name="llms" />
+          <element id="library" level="module" name="bcprov-jdk15-1.43.jar" module-name="llms" />
+          <element id="library" level="module" name="c3p0-0.9.1.jar" module-name="llms" />
+          <element id="library" level="module" name="cglib-nodep-2.1_3.jar" module-name="llms" />
+          <element id="library" level="module" name="common-annotations.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-beanutils-1.7.0.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-codec-1.4.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-collections-3.1.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-dbcp.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-fileupload-1.2.1.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-httpclient-3.1.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-io-1.3.2.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-lang-2.4.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-logging-1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="commons-pool.jar" module-name="llms" />
+          <element id="library" level="module" name="cxf-2.0.13.jar" module-name="llms" />
+          <element id="library" level="module" name="cxf-manifest.jar" module-name="llms" />
+          <element id="library" level="module" name="dom4j-1.6.1.jar" module-name="llms" />
+          <element id="library" level="module" name="ehcache-core-2.5.2.jar" module-name="llms" />
+          <element id="library" level="module" name="ehcache-web-2.0.4.jar" module-name="llms" />
+          <element id="library" level="module" name="ejb3-persistence.jar" module-name="llms" />
+          <element id="library" level="module" name="ezmorph-1.0.4.jar" module-name="llms" />
+          <element id="library" level="module" name="freemarker-2.3.13.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-activation_1.1_spec-1.0.2.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-annotation_1.0_spec-1.1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-javamail_1.4_spec-1.3.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-jms_1.1_spec-1.1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-stax-api_1.0_spec-1.0.1.jar" module-name="llms" />
+          <element id="library" level="module" name="geronimo-ws-metadata_2.0_spec-1.1.2.jar" module-name="llms" />
+          <element id="library" level="module" name="hibernate-annotations.jar" module-name="llms" />
+          <element id="library" level="module" name="hibernate-commons-annotations.jar" module-name="llms" />
+          <element id="library" level="module" name="hibernate3.jar" module-name="llms" />
+          <element id="library" level="module" name="java-core-2.4.1.jar" module-name="llms" />
+          <element id="library" level="module" name="javassist-3.9.0.GA.jar" module-name="llms" />
+          <element id="library" level="module" name="jaxb-api-2.0.jar" module-name="llms" />
+          <element id="library" level="module" name="jaxb-impl-2.0.5.jar" module-name="llms" />
+          <element id="library" level="module" name="jaxb-xjc-2.0.jar" module-name="llms" />
+          <element id="library" level="module" name="jaxen-1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="jaxws-api-2.0.jar" module-name="llms" />
+          <element id="library" level="module" name="jdom-1.0.jar" module-name="llms" />
+          <element id="library" level="module" name="jettison-1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="jetty-6.1.18.jar" module-name="llms" />
+          <element id="library" level="module" name="jetty-util-6.1.18.jar" module-name="llms" />
+          <element id="library" level="module" name="jra-1.0-alpha-4.jar" module-name="llms" />
+          <element id="library" level="module" name="js-1.6R5.jar" module-name="llms" />
+          <element id="library" level="module" name="json-lib-2.2.2-jdk15.jar" module-name="llms" />
+          <element id="library" level="module" name="jsonplugin-0.33.jar" module-name="llms" />
+          <element id="library" level="module" name="jspsmartupload.jar" module-name="llms" />
+          <element id="library" level="module" name="jstl.jar" module-name="llms" />
+          <element id="library" level="module" name="jta-1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="jtds-1.2.jar" module-name="llms" />
+          <element id="library" level="module" name="jxl.jar" module-name="llms" />
+          <element id="library" level="module" name="log4j-1.2.15.jar" module-name="llms" />
+          <element id="library" level="module" name="neethi-2.0.4.jar" module-name="llms" />
+          <element id="library" level="module" name="ognl-2.6.11.jar" module-name="llms" />
+          <element id="library" level="module" name="opensaml-1.1.jar" module-name="llms" />
+          <element id="library" level="module" name="quartz-1.8.0.jar" module-name="llms" />
+          <element id="library" level="module" name="saaj-api-1.3.jar" module-name="llms" />
+          <element id="library" level="module" name="saaj-impl-1.3.2.jar" module-name="llms" />
+          <element id="library" level="module" name="serializer-2.7.1.jar" module-name="llms" />
+          <element id="library" level="module" name="slf4j-api-1.5.8.jar" module-name="llms" />
+          <element id="library" level="module" name="slf4j-log4j12-1.5.8.jar" module-name="llms" />
+          <element id="library" level="module" name="slf4j-simple-1.5.2.jar" module-name="llms" />
+          <element id="library" level="module" name="smack.jar" module-name="llms" />
+          <element id="library" level="module" name="smackx-debug.jar" module-name="llms" />
+          <element id="library" level="module" name="smackx-jingle.jar" module-name="llms" />
+          <element id="library" level="module" name="smackx.jar" module-name="llms" />
+          <element id="library" level="module" name="spring.jar" module-name="llms" />
+          <element id="library" level="module" name="standard.jar" module-name="llms" />
+          <element id="library" level="module" name="struts2-core-2.1.6.jar" module-name="llms" />
+          <element id="library" level="module" name="struts2-spring-plugin-2.1.6.jar" module-name="llms" />
+          <element id="library" level="module" name="ueditor.jar" module-name="llms" />
+          <element id="library" level="module" name="velocity-1.4.jar" module-name="llms" />
+          <element id="library" level="module" name="velocity-dep-1.4.jar" module-name="llms" />
+          <element id="library" level="module" name="wsdl4j-1.6.2.jar" module-name="llms" />
+          <element id="library" level="module" name="wss4j-1.5.8.jar" module-name="llms" />
+          <element id="library" level="module" name="wstx-asl-3.2.4.jar" module-name="llms" />
+          <element id="library" level="module" name="xalan-2.7.1.jar" module-name="llms" />
+          <element id="library" level="module" name="xml-apis-1.3.02.jar" module-name="llms" />
+          <element id="library" level="module" name="xml-resolver-1.2.jar" module-name="llms" />
+          <element id="library" level="module" name="xmlbeans-2.3.0.jar" module-name="llms" />
+          <element id="library" level="module" name="XmlSchema-1.4.5.jar" module-name="llms" />
+          <element id="library" level="module" name="xmlsec-1.4.3.jar" module-name="llms" />
+          <element id="library" level="module" name="xwork-2.1.2.jar" module-name="llms" />
+          <element id="library" level="module" name="junit4" module-name="llms" />
+          <element id="library" level="module" name="gson-2.2.4.jar" module-name="llms" />
+          <element id="library" level="module" name="pingpp-java-2.0.10.jar" module-name="llms" />
+          <element id="library" level="module" name="pingpp-java-2.0.5.jar" module-name="llms" />
+          <element id="library" level="module" name="mysql-connector-java-5.1.31-bin.jar" module-name="llms" />
+          <element id="library" level="module" name="antlr-2.7.6.jar" module-name="llms" />
+          <element id="library" level="module" name="taobao-sdk-java-auto_1450022832134-20151222-source.jar" module-name="llms" />
+          <element id="library" level="module" name="taobao-sdk-java-auto_1450022832134-20151222.jar" module-name="llms" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="llms/web/Web" />
+    </root>
+  </artifact>
+</component>

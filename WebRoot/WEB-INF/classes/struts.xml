@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<!--设定上传文件最大值是100M-->
+    <constant name="struts.multipart.maxSize"
+    value="1000000000000"/>
+        
+        
+        <!--全局过滤器-->
+        <package name="default_interceptor" extends="json-default">
+          <interceptors>
+	           <interceptor name="logException"  class="com.filems.util.interceptor.ExceptionInterceptor"/>
+	           <!-- 定义一个拦截器栈 -->
+	           <interceptor-stack name="logExceptionInterceptor">
+	              <interceptor-ref name="logException" />
+				  <interceptor-ref name="defaultStack" />
+	           </interceptor-stack>
+          </interceptors>
+          <default-interceptor-ref name="logExceptionInterceptor" />
+	      <!--默认action  -->
+		  <default-action-ref name="pageNotFund"></default-action-ref>
+		  <!-- 全局返回结果  -->
+		  <global-results>
+				<!--异常json统一返回结果-->
+				<result name="EXCEPTION_JSON" type="json">
+				   <param name="root">result</param>
+				</result>
+				<!--异常html统一返回结果-->
+				<result name="EXCEPTION_HTML">/exception.jsp</result>
+			</global-results>
+        </package>
+        
+        
+        
+        <!-- 客户端接口验证 -->
+		<package name="filemsclient" extends="default_interceptor">
+			<interceptors>
+			    <!--账户的拦截判断-->
+				<interceptor name="clientInterceptor" class="com.filems.util.interceptor.ClientInterceptor" />
+				<interceptor-stack name="ClientInterceptor">
+					<interceptor-ref name="clientInterceptor"/>
+					<interceptor-ref name="logException" />
+					<interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+			</interceptors>
+			<default-interceptor-ref name="ClientInterceptor" />
+		</package>
+
+
+     <include file="struts/Api/Client_Api.xml" />
+  
+
+</struts>
+
